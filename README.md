@@ -1,0 +1,2 @@
+chạy gulp:
+npx gulp
