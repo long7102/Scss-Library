@@ -1,0 +1,29 @@
+//SCSS @extend, kế thừa những thuộc tính của thành phần khác đã được khai báo trước đó, giúp giảm thời gian code và trùng lặp code.
+%flex-layout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  .navbar {
+    //tất cả css của flex-layout đã được áp dụng vào class navbar
+    // mà không cần phải code lại nữa giúp tiết kiệt thời gian
+    @extend %flex-layout;
+    padding: $base-padding $base-padding * 2;
+    box-shadow: $base-box-shadow;
+    .site-title {
+      font-size: $font-size-lg;
+    }
+    .container {
+      @extend %flex-layout;
+    }
+  }
+  
+  @each $key, $val in $colors {
+    .navbar-#{$key} {
+      @extend .navbar;
+      background-color: $val;
+    }
+  }
